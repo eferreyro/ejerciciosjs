@@ -1,0 +1,30 @@
+// CLASE 29 - PROMESAS
+const API_URL = 'https://swapi.co/api/'
+const PEOPLE_URL = 'people/:id/'
+
+const opts = { crossDomain: true }
+
+
+function persona(id){
+
+	return new Promise ((resolve, reject)=>{//Si resuelve llamamos a Resolve, si hay un error llamamos reject
+		consturl = `${API_URL}${PEOPLE_URL.replace(':id', id)}`
+		
+		$
+			.get(url, opts, function(data){
+				resolve(data)
+			})
+			.fail(()=> reject(id)
+			)
+	})		
+}
+
+function onError(id){
+	console.log(`Sucedió un error al obtener el personaje ${id}`)
+}
+
+persona(1)
+	.then(function(personaje){
+		console.log(`El personaje 1 es ${personaje.name}`)
+	})
+	.catch(onError)
